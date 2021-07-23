@@ -17,8 +17,8 @@ class EnemyResultModel{
     func enemyMove(){
         
         enemyMoveResult = enemyMeansArray.randomElement()!
-        
+        print(enemyMeansArray)
     }
     
-    
+    //
 }

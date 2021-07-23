@@ -36,13 +36,15 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         
         enemyView.layer.cornerRadius = 15.0
-        enemyProgressView.progress = 1
+        enemyProgressView.progress = 1.0
+        enemyProgressView.transform = CGAffineTransform(scaleX: 1.0, y: 3.0)
         enemyProgressView.progressViewStyle = .bar
         enemyProgressView.backgroundColor = .white
         enemyProgressView.progressTintColor = .systemGreen
         
         myView.layer.cornerRadius = 15.0
-        myprogreeView.progress = 1
+        myprogreeView.progress = 1.0
+        myprogreeView.transform = CGAffineTransform(scaleX: 1.0, y: 3.0)
         myprogreeView.progressViewStyle = .bar
         myprogreeView.backgroundColor = .white
         myprogreeView.progressTintColor = .systemGreen
@@ -218,9 +220,10 @@ extension ViewController{
             
         }))
         
+        alert.addAction(UIAlertAction(title: "やめる", style: .cancel, handler: nil))
+        
         present(alert, animated: true, completion: nil)
         
     }
     
 }
-
