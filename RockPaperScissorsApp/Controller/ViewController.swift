@@ -52,7 +52,13 @@ class ViewController: UIViewController {
         gameResultLabel.text = ""
     }
 
+    
+    
     @IBAction func rock(_ sender: Any) {
+        
+        rockButton.isEnabled = false
+        scissorButton.isEnabled = false
+        paperButton.isEnabled = false
         
         enemyResultModel.enemyMove()
         
@@ -65,6 +71,16 @@ class ViewController: UIViewController {
             enemyProgressView.setProgress(enemyProgressView.progress - 0.2, animated: true)
             
             myLogLabel.text = "相手にダメージを与えました"
+            
+            if enemyProgressView.progress <= 0.3{
+                
+                enemyProgressView.progressTintColor = .red
+                
+            }else if enemyProgressView.progress <= 0.6{
+                
+                enemyProgressView.progressTintColor = .orange
+                
+            }
             
             if enemyProgressView.progress == 0{
                 
@@ -83,6 +99,16 @@ class ViewController: UIViewController {
             
             myLogLabel.text = "ダメージを受けました"
             
+            if myprogreeView.progress <= 0.3{
+                
+                myprogreeView.progressTintColor = .red
+                
+            }else if myprogreeView.progress <= 0.6{
+                
+                myprogreeView.progressTintColor = .orange
+                
+            }
+            
             if myprogreeView.progress == 0{
                 
                 gameResultLabel.text = "Loser"
@@ -97,12 +123,20 @@ class ViewController: UIViewController {
             
         }
         
+        rockButton.isEnabled = true
+        scissorButton.isEnabled = true
+        paperButton.isEnabled = true
+        
         
     }
     
     
     
     @IBAction func scissor(_ sender: Any) {
+        
+        rockButton.isEnabled = false
+        scissorButton.isEnabled = false
+        paperButton.isEnabled = false
         
         enemyResultModel.enemyMove()
         
@@ -115,6 +149,16 @@ class ViewController: UIViewController {
             enemyProgressView.setProgress(enemyProgressView.progress - 0.2, animated: true)
             
             myLogLabel.text = "相手にダメージを与えました"
+            
+            if enemyProgressView.progress <= 0.3{
+                
+                enemyProgressView.progressTintColor = .red
+                
+            }else if enemyProgressView.progress <= 0.6{
+                
+                enemyProgressView.progressTintColor = .orange
+                
+            }
             
             if enemyProgressView.progress == 0{
                 
@@ -133,6 +177,16 @@ class ViewController: UIViewController {
             
             myLogLabel.text = "ダメージを受けました"
             
+            if myprogreeView.progress <= 0.3{
+                
+                myprogreeView.progressTintColor = .red
+                
+            }else if myprogreeView.progress <= 0.6{
+                
+                myprogreeView.progressTintColor = .orange
+                
+            }
+            
             if myprogreeView.progress == 0{
                 
                 gameResultLabel.text = "Loser"
@@ -147,10 +201,17 @@ class ViewController: UIViewController {
             
         }
         
+        rockButton.isEnabled = true
+        scissorButton.isEnabled = true
+        paperButton.isEnabled = true
         
     }
     
     @IBAction func paper(_ sender: Any) {
+        
+        rockButton.isEnabled = false
+        scissorButton.isEnabled = false
+        paperButton.isEnabled = false
         
         enemyResultModel.enemyMove()
         
@@ -163,6 +224,16 @@ class ViewController: UIViewController {
             enemyProgressView.setProgress(enemyProgressView.progress - 0.2, animated: true)
             
             myLogLabel.text = "相手にダメージを与えました"
+            
+            if enemyProgressView.progress <= 0.3{
+                
+                enemyProgressView.progressTintColor = .red
+                
+            }else if enemyProgressView.progress <= 0.6{
+                
+                enemyProgressView.progressTintColor = .orange
+                
+            }
             
             if enemyProgressView.progress == 0{
                 
@@ -181,6 +252,16 @@ class ViewController: UIViewController {
             
             myLogLabel.text = "ダメージを受けました"
             
+            if myprogreeView.progress <= 0.3{
+                
+                myprogreeView.progressTintColor = .red
+                
+            }else if myprogreeView.progress <= 0.6{
+                
+                myprogreeView.progressTintColor = .orange
+                
+            }
+            
             if myprogreeView.progress == 0{
                 
                 gameResultLabel.text = "Loser"
@@ -195,6 +276,9 @@ class ViewController: UIViewController {
             
         }
 
+        rockButton.isEnabled = true
+        scissorButton.isEnabled = true
+        paperButton.isEnabled = true
         
     }
     
@@ -212,7 +296,9 @@ extension ViewController{
         alert.addAction(UIAlertAction(title: "もう一度", style: .default, handler: { [self] _ in
             
             enemyProgressView.progress = 1
+            enemyProgressView.progressTintColor = .systemGreen
             myprogreeView.progress = 1
+            myprogreeView.progressTintColor = .systemGreen
             
             myLogLabel.text = "もう一度遊びます"
             gameResultLabel.text = "ReStart"
@@ -225,5 +311,6 @@ extension ViewController{
         present(alert, animated: true, completion: nil)
         
     }
+ 
     
 }
